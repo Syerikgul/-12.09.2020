@@ -1,0 +1,18 @@
+void snakeArray(int **M, int n) {
+
+	int k = 1;
+	int i = 0, j = 0, dir=1;
+	
+	while (k <= n*(n+1)/2) {
+		M[i][j] = k++;
+		i += dir;
+		j -= dir;
+		if (j < 0) {
+			j = 0;
+			dir = -dir;
+		}
+		if (i < 0) {
+			i = 0;
+			dir = -dir;
+		}
+	}
