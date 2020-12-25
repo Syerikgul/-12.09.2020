@@ -1,0 +1,28 @@
+#include <iostream>
+
+int main()
+{
+	const int rows = 7, cols = 9;
+	int M[rows][cols];
+	int k = 1;
+	int x = 0, y = 0;
+	int left = 0, right = cols - 1, top = 1, bottom = rows - 1;
+	do {
+		do { M[y][x] = k++; ++x; } while (x < right);
+		--right;
+		if (k <= rows * cols) do { M[y][x] = k++; ++y; } while (y < bottom);
+		--bottom;
+		if (k <= rows * cols) do { M[y][x] = k++; --x; } while (x > left);
+		++left;
+		if (k <= rows * cols) do { M[y][x] = k++; --y; } while (y > top);
+		++top;
+	} while (k <= rows * cols);
+
+		//Вывод матрицы на экран
+		for (int i = 0; i < rows; ++i) {
+			for (int j = 0; j < cols; ++j) {
+				std::cout << M[i][j] << " ";
+			}
+		std:: cout << std::endl;
+		}
+}
