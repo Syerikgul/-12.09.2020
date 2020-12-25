@@ -1,0 +1,42 @@
+// shiftarray.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//
+
+#include <iostream>
+
+
+int main()
+{
+	char scr_file_name[256], dest_file_name[256];
+	std::cout << "Input source filename: ";
+	std::cin.getline(scr_file_name, 256);
+
+	std::ifstream inFile(scr_file_name, std::ios_base::binary);
+	if (!inFile) {
+		std::cout << "Can not open file " << scr_file_name << std::endl;
+		return 1;
+	}
+
+	std::cout << "Input destination file name : ";
+	std::cin.getline(dest_file_name, 256);
+
+	std::ofstream outFile(dest_file_name, std::ios_base::out | std::ios_base::binary);
+	if (!outFile) {
+		std::cout << "Can not open file " << dest_file_name << std::endl;
+		inFile.close();
+		return 2;
+	}
+	int ch;
+	unsigned int count = 0;
+	while ((ch = inFile.get()) != EOF) {
+		int ch2.get();
+		outFile.put(ch2);
+		outFile.put(ch);
+		++count;
+		++count;
+	}
+	std::cout << "Copied " << count << "bytes" << std::endl;
+		
+	inFile.close();
+	outFile.close();
+}
+
